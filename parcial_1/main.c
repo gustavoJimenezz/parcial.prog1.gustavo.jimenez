@@ -7,9 +7,7 @@ typedef struct {
     char nombre[20];
     char tipo;
     float efectividad;
-
 }eVacuna;
-
 
 float aplicarAumento(int precio);
 int reemplazarCaracteres(char texto[], char primerChar, char segundoChar);
@@ -32,7 +30,6 @@ int main()
     printf("Cantidad de veces reemplazado : %d", cantidad);
 
 
-
     return 0;
 }
 float aplicarAumento(int precio)
@@ -42,7 +39,7 @@ float aplicarAumento(int precio)
     return precioConAumento = precio + (precio * 0.05);
 }
 
-int ordenarArray(char texto[], char primerChar, char segundoChar)
+int reemplazarCaracteres(char texto[], char primerChar, char segundoChar)
 {
     int tamCadena;
     int cantReemplazo = 0;
@@ -60,10 +57,10 @@ int ordenarArray(char texto[], char primerChar, char segundoChar)
     return cantReemplazo;
 }
 
-int ordenarSexoNombre(eVacuna listaVacunas[], int tam)
+int ordenarArray(eVacuna listaVacunas[], int tam)
 {
     int retorno = 0;
-    ePersona auxVacuna;
+    eVacuna auxVacuna;
 
     if(listaVacunas != NULL && tam>0 )
     {
@@ -71,8 +68,8 @@ int ordenarSexoNombre(eVacuna listaVacunas[], int tam)
         {
             for( int j= i+1; j < tam ; j++)
             {
-                if((strcmp(listaVacunas[i].tipo, listaVacunas[i].tipo) > 0) ||
-                   (strcmp(listaVacunas[i].tipo, listaVacunas[i].tipo) == 0  && listaVacunas[i].efectividad > listaVacunas[j].efectividad))
+                if((listaVacunas[i].tipo > listaVacunas[j].tipo) ||
+                   (listaVacunas[i].tipo == listaVacunas[j].tipo && listaVacunas[i].efectividad > listaVacunas[j].efectividad))
                 {
                     auxVacuna = listaVacunas[i];
                     listaVacunas[i]= listaVacunas[j];
